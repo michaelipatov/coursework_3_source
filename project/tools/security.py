@@ -34,9 +34,9 @@ def generate_tokens(email, password, password_hash=None, is_refresh=False):
 
     data = {
         "email": email,
-        "password": password
+        "password": password,
     }
-    min_for_token = datetime.datetime.utcnow() + datetime.timedelta(minutes=current_app.config['TOKEN_EXPIRE_MINUTS'])
+    min_for_token = datetime.datetime.utcnow() + datetime.timedelta(minutes=current_app.config['TOKEN_EXPIRE_MINUTES'])
     data['exp'] = calendar.timegm(min_for_token.timetuple())
     access_token = jwt.encode(data, key=current_app.config['SECRET_KEY'], algorithm=current_app.config['ALGORITHM'])
 
