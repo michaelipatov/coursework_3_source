@@ -32,12 +32,15 @@ class MoviesDAO(BaseDAO[Movie]):
 class UsersDAO(BaseDAO[User]):
     __model__ = User
 
-    def create(self, login, password):
+    def create(self, login, password, name, surname, favorite_genre):
         try:
             self._db_session.add(
                                 User(
                                     email=login,
-                                    password=generate_password_hash(password)
+                                    password=generate_password_hash(password),
+                                    name=name,
+                                    surname=surname,
+                                    favorite_genre=favorite_genre
                                 ))
             self._db_session.commit()
             print('Пользователь добавлен')

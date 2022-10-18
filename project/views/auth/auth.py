@@ -13,7 +13,7 @@ class RegisterView(Resource):
     def post(self):
         data = request.json
         if data.get('email') and data.get('password'):
-            return user_service.create_user(data.get('email'), data.get('password')), 201
+            return user_service.create_user(data.get('email'), data.get('password'), data.get('name'), data.get('surname'), data.get('favorite_genre')), 201
         else:
             return 'Something wrong', 401
 

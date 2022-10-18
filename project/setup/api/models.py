@@ -28,5 +28,6 @@ user: Model = api.model('Пользователь', {
     'email': fields.String(required=True),
     'password': fields.String(required=True),
     'name': fields.String(required=True),
-    'surname': fields.Integer(required=True)
+    'surname': fields.String(required=True),
+    'genre': fields.Nested(genre)
 })

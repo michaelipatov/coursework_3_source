@@ -18,8 +18,8 @@ class UsersService:
     def get_all(self, page: Optional[int] = None) -> list[User]:
         return self.dao.get_all(page=page)
 
-    def create_user(self, login, password):
-        self.dao.create(login, password)
+    def create_user(self, login, password, name, surname, favorite_genre):
+        self.dao.create(login, password, name, surname, favorite_genre)
 
     def get_user_by_login(self, login):
         return self.dao.get_user_by_login(login)
